@@ -10,5 +10,4 @@ class NotSelfSubscription(permissions.BasePermission):
                 or request.data.get('following') != request.user.username
         ):
             return True
-        else:
-            raise ParseError("Пользователь не может подписаться на себя!")
+        raise ParseError("Пользователь не может подписаться на себя!")
