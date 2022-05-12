@@ -6,8 +6,8 @@ class NotSelfSubscription(permissions.BasePermission):
 
     def has_permission(self, request, view):
         if (
-                request.method in permissions.SAFE_METHODS or
-                request.data.get('following') != request.user.username
+                request.method in permissions.SAFE_METHODS
+                or request.data.get('following') != request.user.username
         ):
             return True
         else:
